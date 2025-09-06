@@ -1,0 +1,28 @@
+{% extends 'shop/basic.html' %}
+{% block title %}{{ product.product_name }} - My cart{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <div class="row">
+        <!-- Product Image -->
+        <div class="col-md-4">
+            {% if product.image %}
+                <img src="/media/{{ product.image }}" alt="{{ product.product_name }}" class="img-fluid rounded">
+            {% else %}
+                <p>No image available</p>
+            {% endif %}
+            <div class="row">
+                <button class="btn btn-primary mx-3">Buy Now</button>
+                <button class="btn btn-primary">Add To Cart</button>
+            </div>
+        </div>
+
+        <!-- Product Details -->
+        <div class="col-md-8">
+            <h3>{{ product.product_name }}</h3>
+            <p>{{ product.desc }}</p>
+            <p><strong>Price:</strong> ₹{{ product.price }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
