@@ -18,11 +18,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from . import veiws
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('shop/', include('shop.urls')),
     path('blog/', include('blog.urls')),
+    path('', veiws.index),
+    # path('',include('shop.urls')),
 ]
 
 if settings.DEBUG:  # only serve media in development
